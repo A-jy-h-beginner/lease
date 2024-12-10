@@ -11,7 +11,7 @@ public enum ItemType implements BaseEnum {
     ROOM(2, "房间");
 
 
-    @EnumValue
+    @EnumValue // 枚举实例和code属性
     @JsonValue
     private Integer code;
     private String name;
