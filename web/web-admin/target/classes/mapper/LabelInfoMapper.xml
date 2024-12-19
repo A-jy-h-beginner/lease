@@ -4,4 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.lease.web.admin.mapper.LabelInfoMapper">
 
+    <select id="selectByApartmentId" resultType="com.atguigu.lease.model.entity.LabelInfo"
+            parameterType="java.lang.Long">
+        select
+            *
+        from label_info
+        where id in (
+            select
+                label_id
+            from apartment_label
+            where apartment_id=#{id}
+        )
+    </select>
+    <select id="selectListByRoomId" resultType="com.atguigu.lease.model.entity.LabelInfo"
+            parameterType="java.lang.Long">
+        select id,
+               type,
+               name
+        from label_info
+        where is_deleted = 0
+          and id in
+              (select label_id
+               from room_label
+               where is_deleted = 0
+                 and room_id = #{id})
+    </select>
 </mapper>

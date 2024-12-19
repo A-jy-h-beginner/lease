@@ -9,6 +9,7 @@ import lombok.*;
 @Schema(description = "图片信息表")
 @TableName(value = "graph_info")
 @Data
+@Builder
 public class GraphInfo extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
@@ -21,7 +22,7 @@ public class GraphInfo extends BaseEntity {
     @TableField(value = "item_type")
     private ItemType itemType;
 
-    @Schema(description = "图片所有对象id")
+    @Schema(description = "图片所有对象id, 所属社区或房间的id")
     @TableField(value = "item_id")
     private Long itemId;
 

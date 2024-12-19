@@ -46,4 +46,10 @@ public class Result<T> {
     public static <T> Result<T> fail() {
         return build(null, ResultCodeEnum.FAIL);
     }
+    public static <T> Result<T> fail(Integer code, String message) {
+        Result<T> build = build(null);
+        build.setCode(code);
+        build.setMessage(message);
+        return build;
+    }
 }
