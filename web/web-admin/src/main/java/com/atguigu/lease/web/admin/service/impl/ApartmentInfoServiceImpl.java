@@ -58,11 +58,22 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
     private FacilityInfoMapper facilityInfoMapper;
     @Autowired
     private FeeValueMapper feeValueMapper;
+    @Autowired
+    private ProvinceInfoService provinceInfoService;
+    @Autowired
+    private CityInfoService cityInfoService;
+    @Autowired
+    private DistrictInfoService districtInfoService;
     @Override
     public void saveOrUpdateApartment(ApartmentSubmitVo apartmentSubmitVo) {
         // 是否新增 -> 看id
         boolean isUpdate = apartmentSubmitVo.getId() != null;
+        // 设置省市区名
+        apartmentSubmitVo.setProvinceName(provinceInfoService.getById(apartmentSubmitVo.getProvinceId()).getName());
+        apartmentSubmitVo.setCityName(cityInfoService.getById(apartmentSubmitVo.getCityId()).getName());
+        apartmentSubmitVo.setDistrictName(districtInfoService.getById(apartmentSubmitVo.getDistrictId()).getName());
         saveOrUpdate(apartmentSubmitVo); // 是基于ApartmentInfo的IService接口只处理继承的ApartmentInfo部分，扩展的需要处理
+
         if(isUpdate){
             //1.删除图片，配套，标签，杂费
             graphInfoService.lambdaUpdate()

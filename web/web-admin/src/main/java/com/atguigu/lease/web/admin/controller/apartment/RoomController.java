@@ -60,8 +60,8 @@ public class RoomController {
     @PostMapping("updateReleaseStatusById")
     public Result updateReleaseStatusById(Long id, ReleaseStatus status) {
         roomInfoService.lambdaUpdate()
-                .eq(RoomInfo::getIsRelease, status)
-                .set(RoomInfo::getId, id)
+                .eq(RoomInfo::getId, id)
+                .set(RoomInfo::getIsRelease, status)
                 .update();
         return Result.ok();
     }

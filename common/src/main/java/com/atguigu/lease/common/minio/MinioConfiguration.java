@@ -2,6 +2,7 @@ package com.atguigu.lease.common.minio;
 
 import io.minio.MinioClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(MinioProperties.class)  //类
 // @ConfigurationPropertiesScan("com.atguigu.lease.common.minio") // 包 多个时用
+@ConditionalOnProperty(name = "minio.endpoint")  // yml里有则注册bean没不注册
 public class MinioConfiguration {
     //    @Value("${minio.endpoint}") 法一
     @Autowired

@@ -10,7 +10,7 @@
             url
         from graph_info
         where is_deleted = 0
-        and item_type=#{apartment}
+        and item_type=#{type}
         and item_id=#{id}
     </select>
 </mapper>

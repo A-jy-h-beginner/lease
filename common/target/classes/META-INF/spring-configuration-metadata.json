@@ -1,12 +1,32 @@
 {
   "groups": [
     {
+      "name": "aliyun.sms",
+      "type": "com.atguigu.lease.common.sms.AliyunSMSProperties",
+      "sourceType": "com.atguigu.lease.common.sms.AliyunSMSProperties"
+    },
+    {
       "name": "minio",
       "type": "com.atguigu.lease.common.minio.MinioProperties",
       "sourceType": "com.atguigu.lease.common.minio.MinioProperties"
     }
   ],
   "properties": [
+    {
+      "name": "aliyun.sms.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.lease.common.sms.AliyunSMSProperties"
+    },
+    {
+      "name": "aliyun.sms.access-key-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.lease.common.sms.AliyunSMSProperties"
+    },
+    {
+      "name": "aliyun.sms.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.lease.common.sms.AliyunSMSProperties"
+    },
     {
       "name": "minio.access-key",
       "type": "java.lang.String",

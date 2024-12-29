@@ -9,7 +9,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class CaptchaVo {
 
-    @Schema(description="验证码图片信息")
+    @Schema(description="验证码图片信息") // base64能把二进制数据转为String类型
     private String image;
 
     @Schema(description="验证码key")

@@ -17,6 +17,12 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  data:
+    redis:
+      host: 192.168.255.128
+      port: 6379
+      password: hat123
+      database: 0
 
 #用于打印框架生成的sql语句，便于调试
 mybatis-plus:

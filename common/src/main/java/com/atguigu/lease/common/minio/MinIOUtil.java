@@ -3,6 +3,7 @@ package com.atguigu.lease.common.minio;
 import io.minio.*;
 import io.minio.errors.MinioException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import java.io.InputStream;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 @Component
+@ConditionalOnProperty(name = "minio.endpoint")  // webapp的yml没配置就不用
 public class MinIOUtil {
     // MinIO配置
 //    @Value("${minio.endpoint}")
